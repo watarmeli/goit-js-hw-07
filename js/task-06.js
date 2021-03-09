@@ -1,17 +1,17 @@
 const inputEl = document.querySelector('#validation-input');
+const accept = 'valid';
+const denied = 'invalid';
+const validClass = (element, addClass, removeClass) => {
+    element.classList.add(addClass);
+    element.classList.remove(removeClass);
+}
 
 const checkTextLength = (event) => {
-    if (event.target.value === '') {
-        inputEl.classList.remove('valid');
-        inputEl.classList.remove('invalid');
-    } else if (event.target.value.length === +inputEl.dataset.length) {
-        inputEl.classList.remove('invalid');
-        inputEl.classList.add('valid');
-    } else {
-        inputEl.classList.remove('valid');
-        inputEl.classList.add('invalid');
+    if (event.target.value.length === +inputEl.dataset.length) {
+        validClass(inputEl, accept, denied);
+    } else  {
+        validClass(inputEl, denied, accept);
     };
 }
 
-inputEl.addEventListener('blur', checkTextLength)
-
+inputEl.addEventListener('blur', checkTextLength);
