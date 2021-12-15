@@ -32,7 +32,7 @@ function renderBox(amount) {
 }
 
 function randomNumber() {
-  return Math.round(Math.random() * (255 - 1) + 1);
+  return Math.floor(Math.random() * 255);
 }
 
 function randomColor() {
